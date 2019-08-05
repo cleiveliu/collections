@@ -1,0 +1,12 @@
+
+
+requests
+ipython
+numpy
+scipy
+pandas
+matplotlib
+lxml
+pygal
+jupyter
+jupyterlab
