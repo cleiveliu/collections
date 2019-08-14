@@ -10,3 +10,8 @@ lxml
 pygal
 jupyter
 jupyterlab
+bottle
+flask
+django
+pylint
+
