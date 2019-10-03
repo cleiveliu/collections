@@ -1,0 +1,2 @@
+- Lisp之根源-保罗格雷厄姆::http://daiyuwen.freeshell.org/gb/rol/roots_of_lisp.html   
+- 
