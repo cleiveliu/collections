@@ -1,2 +1,3 @@
 - Lisp之根源-保罗格雷厄姆::http://daiyuwen.freeshell.org/gb/rol/roots_of_lisp.html   
+- 怎样写一个解释器::http://www.yinwang.org/blog-cn/2012/08/01/interpreter
 - 
