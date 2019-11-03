@@ -9,8 +9,7 @@ typedef struct
 {
     datatype a[MAXSIZE];
     int top;
-}sequence_stack;
-
+} sequence_stack;
 
 void init(sequence_stack *stack)
 {
@@ -19,7 +18,7 @@ void init(sequence_stack *stack)
 
 int empty(sequence_stack stack)
 {
-    return (stack.top ==0?0:1);
+    return (stack.top == 0 ? 0 : 1);
 }
 
 datatype read(sequence_stack stack)
@@ -29,10 +28,10 @@ datatype read(sequence_stack stack)
         printf("The satck is empty\n");
         exit(1);
     }
-    return stack.a[stack.top-1];
+    return stack.a[stack.top - 1];
 }
 
-void push(sequence_stack *stack,datatype x)
+void push(sequence_stack *stack, datatype x)
 {
     if (stack->top >= MAXSIZE)
     {
@@ -45,7 +44,7 @@ void push(sequence_stack *stack,datatype x)
 
 datatype pop(sequence_stack *stack)
 {
-    if (stack->top ==0)
+    if (stack->top == 0)
     {
         printf("The stack is empty\n");
         exit(1);
@@ -54,5 +53,3 @@ datatype pop(sequence_stack *stack)
     stack->top--;
     return ret;
 }
-
-

@@ -3,18 +3,19 @@
 
 typedef int datatype;
 
-typedef struct circle_link_list {
+typedef struct circle_link_list
+{
     datatype info;
     struct circle_link_list *next;
-}node;
+} node;
 
-node* init()
+node *init()
 {
     return NULL;
 }
 
 //get the last node,which node.next point to head
-node* rear(node *head)
+node *rear(node *head)
 {
     node *p;
     if (!head)
@@ -42,22 +43,22 @@ void display(node *head)
     }
     else
     {
-        printf("%5d",p->info);
+        printf("%5d", p->info);
         p = p->next;
         while (p != head)
         {
-            printf("%5d",p->info);
+            printf("%5d", p->info);
             p = p->next;
         }
     }
 }
 
-node* find(node *head,datatype x)
+node *find(node *head, datatype x)
 {
     node *p;
     if (!head)
     {
-        printf("The list is empty\n");\
+        printf("The list is empty\n");
         return NULL;
     }
     else
@@ -79,48 +80,48 @@ node* find(node *head,datatype x)
 }
 
 //insert a new node after ith node,i==0 means add a new node before first node
-node* insert(node *head,datatype x,int i)
+node *insert(node *head, datatype x, int i)
 {
-    node *p,*q,*myrear;
+    node *p, *q, *myrear;
     int j;
-    p = (node*)malloc(sizeof(node));
+    p = (node *)malloc(sizeof(node));
     p->info = x;
-    if (i<0)
+    if (i < 0)
     {
         printf("The ops canot be down\n");
         return head;
     }
-    if (i==0 && !head)
+    if (i == 0 && !head)
     {
         p->next = p;
         head = p;
         return head;
     }
-    if (i==0 && head)
+    if (i == 0 && head)
     {
         myrear = rear(head);
         p->next = head;
         myrear->next = p;
         return head;
     }
-    if (i>0 && !head)
+    if (i > 0 && !head)
     {
-        printf("Canot find %5dth position\n",i);
+        printf("Canot find %5dth position\n", i);
         free(p);
         return head;
     }
-    if (i>0 && head)
+    if (i > 0 && head)
     {
         q = head;
         j = 1;
-        while (q->next != head && j!= i)
+        while (q->next != head && j != i)
         {
             q = q->next;
             j++;
         }
-        if (i!=j)
+        if (i != j)
         {
-            printf("Canot find %5dth position\n",i);
+            printf("Canot find %5dth position\n", i);
             free(p);
             return head;
         }
@@ -134,9 +135,9 @@ node* insert(node *head,datatype x,int i)
     return head;
 }
 
-node* delete(node *head,datatype x)
+node *delete (node *head, datatype x)
 {
-    node *pre,*cur;
+    node *pre, *cur;
     pre = NULL;
     if (!head)
     {
@@ -151,39 +152,37 @@ node* delete(node *head,datatype x)
     }
     if (cur->info != x)
     {
-        printf("Canot find %5d\n",x);
+        printf("Canot find %5d\n", x);
         return head;
     }
     else
     {
-       if (cur != head)
-       {
-           pre->next = cur->next;
-           free(cur);
-           return head;
-       }
-       else
-       {
-           if (head->next == head)
-           {
-               free(cur);
-               head = NULL;
-               return head;
-           }
-           else
-           {
-               pre = head->next;
-               while (pre->next != cur)
-               {
-                   pre = pre->next;
-               }
-               head = head->next;
-               pre->next = head;
-               free(cur);
-               return head;
-           }   
-       }  
-    }   
+        if (cur != head)
+        {
+            pre->next = cur->next;
+            free(cur);
+            return head;
+        }
+        else
+        {
+            if (head->next == head)
+            {
+                free(cur);
+                head = NULL;
+                return head;
+            }
+            else
+            {
+                pre = head->next;
+                while (pre->next != cur)
+                {
+                    pre = pre->next;
+                }
+                head = head->next;
+                pre->next = head;
+                free(cur);
+                return head;
+            }
+        }
+    }
 }
-
-

@@ -1,21 +1,22 @@
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 
 typedef int datatype;
 
-typedef struct link_list_stack{
+typedef struct link_list_stack
+{
     datatype info;
     struct link_list_stack *next;
-}node;
+} node;
 
-node* init()
+node *init()
 {
     return NULL;
 }
 
 int empty(node *top)
 {
-    return (top == NULL?1:0);
+    return (top == NULL ? 1 : 0);
 }
 
 datatype read(node *head)
@@ -29,7 +30,6 @@ datatype read(node *head)
     {
         return head->info;
     }
-    
 }
 void display(node *top)
 {
@@ -42,23 +42,23 @@ void display(node *top)
         node *p = top;
         while (p)
         {
-            printf("%5d",p->info);
+            printf("%5d", p->info);
             p = p->next;
         }
-    }  
+    }
 }
 
-node* push(node *top,datatype x)
+node *push(node *top, datatype x)
 {
     node *p;
-    p = (node*)malloc(sizeof(node));
+    p = (node *)malloc(sizeof(node));
     p->info = x;
     p->next = top;
     top = p;
     return top;
 }
 
-node* pop(node *top)
+node *pop(node *top)
 {
     if (!top)
     {

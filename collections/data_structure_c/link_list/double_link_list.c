@@ -3,12 +3,13 @@
 
 typedef int datatype;
 
-typedef struct double_link_node{
+typedef struct double_link_node
+{
     datatype info;
-    struct double_link_node *left,*right;
-}node;
+    struct double_link_node *left, *right;
+} node;
 
-node* init()
+node *init()
 {
     return NULL;
 }
@@ -25,43 +26,43 @@ void display(node *head)
     {
         while (p)
         {
-            printf("%5d",p->info);
+            printf("%5d", p->info);
             p = p->right;
         }
     }
 }
 
 //find ith node,i start from 1
-node* find(node *head,int i)
+node *find(node *head, int i)
 {
     int j = 1;
     node *p = head;
-    if (i<1)
+    if (i < 1)
     {
-        printf("The %dth node does not exist\n",i);
+        printf("The %dth node does not exist\n", i);
         return NULL;
     }
-    while (p && i!= j)
+    while (p && i != j)
     {
         p = p->right;
         j++;
     }
     if (!p)
     {
-        printf("%dth node does not exist\n",i);
+        printf("%dth node does not exist\n", i);
         return NULL;
     }
     return p;
 }
 
 //add a new node after ith node,i==0 means add a new node before the first node
-node* insert(node *head,datatype x,int i)
+node *insert(node *head, datatype x, int i)
 {
-    node *p,*cur;
-    p = (node*)malloc(sizeof(node));
+    node *p, *cur;
+    p = (node *)malloc(sizeof(node));
     p->info = x;
 
-    if(i==0)
+    if (i == 0)
     {
         if (!head)
         {
@@ -79,10 +80,10 @@ node* insert(node *head,datatype x,int i)
             return head;
         }
     }
-    cur = find(head,i);
+    cur = find(head, i);
     if (!cur)
     {
-        printf("The %dth node does not exist\n",i);
+        printf("The %dth node does not exist\n", i);
         free(p);
         return head;
     }
@@ -100,10 +101,10 @@ node* insert(node *head,datatype x,int i)
         p->left = cur;
         cur->right = p;
         return head;
-    }  
+    }
 }
 
-node* delete(node *head,datatype x)
+node *delete (node *head, datatype x)
 {
     node *cur;
     if (!head)
@@ -118,7 +119,7 @@ node* delete(node *head,datatype x)
     }
     if (cur->info != x)
     {
-        printf("Canot find node %d",x);
+        printf("Canot find node %d", x);
         return head;
     }
     if (cur == head)
@@ -129,12 +130,12 @@ node* delete(node *head,datatype x)
             return NULL;
         }
         else
-        { 
+        {
             head = head->right;
             head->left = NULL;
             free(cur);
             return head;
-        }    
+        }
     }
     if (cur->right == NULL)
     {

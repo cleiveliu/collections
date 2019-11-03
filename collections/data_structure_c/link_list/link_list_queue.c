@@ -3,19 +3,21 @@
 
 typedef int datatype;
 
-typedef struct link_node{
+typedef struct link_node
+{
     datatype info;
     struct link_node *next;
-}node;
+} node;
 
-typedef struct{
-    node *front,*rear;
-}queue;
+typedef struct
+{
+    node *front, *rear;
+} queue;
 
-queue* init()
+queue *init()
 {
     queue *q;
-    q = (queue*)malloc(sizeof(queue));
+    q = (queue *)malloc(sizeof(queue));
     q->front = NULL;
     q->rear = NULL;
     return q;
@@ -23,7 +25,7 @@ queue* init()
 
 int empty(queue *q)
 {
-    return (q->front==NULL && q->rear == NULL?1:0);
+    return (q->front == NULL && q->rear == NULL ? 1 : 0);
 }
 
 void display(queue *q)
@@ -37,7 +39,7 @@ void display(queue *q)
     {
         while (p)
         {
-            printf("%5d",p->info);
+            printf("%5d", p->info);
             p = p->next;
         }
     }
@@ -53,10 +55,10 @@ datatype read(queue q)
     return q.front->info;
 }
 
-queue* insert(queue *q,datatype x)
+queue *insert(queue *q, datatype x)
 {
     node *p;
-    p = (node*)malloc(sizeof(node));
+    p = (node *)malloc(sizeof(node));
     p->info = x;
     p->next = NULL;
 
@@ -72,7 +74,7 @@ queue* insert(queue *q,datatype x)
     return q;
 }
 
-queue* delete(queue *q)
+queue *delete (queue *q)
 {
     if (!q->front)
     {
@@ -82,10 +84,9 @@ queue* delete(queue *q)
     p = q->front;
     q->front = p->next;
     free(p);
-    if (q->front==NULL)
+    if (q->front == NULL)
     {
         q->rear = NULL;
     }
     return q;
 }
-

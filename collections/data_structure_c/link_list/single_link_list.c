@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 typedef int datatype;
-typedef struct link_node{
+typedef struct link_node
+{
     datatype info;
-    struct  link_node *next;
-}node;
+    struct link_node *next;
+} node;
 
-
-node* init()
+node *init()
 {
     return NULL;
 }
@@ -25,45 +25,44 @@ void display(node *head)
     {
         while (p)
         {
-            printf("%d",p->info);
+            printf("%d", p->info);
             p = p->next;
         }
     }
-    
 }
 
 //return ith node,start from 1
-node* find(node *head,int i)
+node *find(node *head, int i)
 {
-    if (i< 1)
+    if (i < 1)
     {
         return NULL;
     }
     int j = 1;
     node *p;
     p = head;
-    while (p && i!=j)
+    while (p && i != j)
     {
-        p=p->next;
+        p = p->next;
         j++;
     }
     return p;
 }
 
 //insert a new node after ith node,i=0 means insert a new node before head node
-node* insert(node *head,datatype x,int i)
+node *insert(node *head, datatype x, int i)
 {
-    node *p,*q;
-    q = find(head,i);
-    if (!q && i!=0)
+    node *p, *q;
+    q = find(head, i);
+    if (!q && i != 0)
     {
-        printf("can not find %dth node,can not insert %d\n",i,x);
+        printf("can not find %dth node,can not insert %d\n", i, x);
     }
     else
     {
-        p = (node*)malloc(sizeof(node));
+        p = (node *)malloc(sizeof(node));
         p->info = x;
-        if (i==0)
+        if (i == 0)
         {
             p->next = head;
             head = p;
@@ -74,13 +73,13 @@ node* insert(node *head,datatype x,int i)
             q->next = p;
         }
     }
-    return head;   
+    return head;
 }
 
-//delete first node if node.info = x 
-node* delete(node *head,datatype x)
+//delete first node if node.info = x
+node *delete (node *head, datatype x)
 {
-    node *pre = NULL,*p;
+    node *pre = NULL, *p;
     if (!head)
     {
         printf("The list is empty\n");

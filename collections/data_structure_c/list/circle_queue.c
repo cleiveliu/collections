@@ -11,7 +11,7 @@ typedef struct
     int front;
     int rear;
     int used;
-}circle_queue;
+} circle_queue;
 
 void init(circle_queue *q)
 {
@@ -30,7 +30,7 @@ datatype get(circle_queue q)
     return q.a[q.front];
 }
 
-void insert(circle_queue *q,datatype value)
+void insert(circle_queue *q, datatype value)
 {
     if (q->used >= MAXSIZE)
     {
@@ -38,18 +38,18 @@ void insert(circle_queue *q,datatype value)
         exit(1);
     }
     q->a[q->rear] = value;
-    q->rear = (q->rear+1)%(MAXSIZE);
+    q->rear = (q->rear + 1) % (MAXSIZE);
     q->used++;
 }
 
-void delete(circle_queue *q)
+void delete (circle_queue *q)
 {
     if (q->used == 0)
     {
         printf("The queue is empty\n");
         exit(1);
     }
-    q->front = (q->front+1)%(MAXSIZE);
+    q->front = (q->front + 1) % (MAXSIZE);
     q->used--;
 }
 
@@ -63,24 +63,22 @@ void display(circle_queue q)
     {
         if (q.front < q.rear)
         {
-            for (int i=q.front;i<q.rear;i++)
+            for (int i = q.front; i < q.rear; i++)
             {
-                printf("%5d",q.a[i]);
+                printf("%5d", q.a[i]);
             }
         }
         else
         {
-            for (int i=q.front;i<MAXSIZE;i++)
+            for (int i = q.front; i < MAXSIZE; i++)
             {
-                printf("%5d",q.a[i]);
+                printf("%5d", q.a[i]);
             }
-            for (int i=0;i<q.rear;i++)
+            for (int i = 0; i < q.rear; i++)
             {
-                printf("%5d",q.a[i]);
+                printf("%5d", q.a[i]);
             }
             printf("\n");
         }
-        
     }
-    
 }
