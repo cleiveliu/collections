@@ -222,11 +222,3 @@ void printPaths(struct node *root)
     int initializer[maxNode];
     recurPath(root, initializer, 0);
 }
-
-int main()
-{
-    struct node *test = build123();
-    printf("%d ", test->data);
-    printPostorder(test);
-    return 0;
-}
